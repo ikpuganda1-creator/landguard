@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandMarket Uganda | Property Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .index-body {
+            background: #f8fafc;
+        }
+
+        /* Modern Split Header Design */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #0d1b2a;
+            border-bottom: 3px solid #c5a059;
+        }
+
+        .new-phone-pill {
+            background: rgba(197, 160, 89, 0.2);
+            border: 1px solid #c5a059;
+            color: #c5a059;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Modern Hero with side alignment */
+        .hero-v2 {
+            background: linear-gradient(90deg, rgba(13, 27, 42, 0.9) 40%, rgba(13, 27, 42, 0.1)), 
+                        url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .hero-v2-text h1 {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* Fresh Card Layout */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            padding: 0 8%;
+            margin-top: -60px; /* Floating effect over hero */
+            padding-bottom: 60px;
+        }
+
+        .card-modern {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #0d1b2a;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: 0.4s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .card-modern:hover {
+            transform: translateY(-15px);
+            border-bottom: 4px solid #c5a059;
+        }
+
+        .card-modern i {
+            font-size: 40px;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .card-modern.dark {
+            background: #0d1b2a;
+            color: white;
+        }
+        
+        .card-modern.dark i { color: #c5a059; }
+    </style>
+</head>
+<body class="index-body">
+
+    <header class="header-top">
+        <div class="logo" style="color: white; font-size: 26px; font-weight: 800;">
+            Land<span style="color: #c5a059;">Market</span>
+        </div>
+        <div class="new-phone-pill">
+            <i class="fas fa-phone-alt"></i>
+            <span>+256 751 996 472</span>
+        </div>
+    </header>
+
+    <section class="hero-v2">
+        <div class="hero-v2-text">
+            <h1>Uganda's Premier <br>Property Ecosystem</h1>
+            <p style="font-size: 1.2rem; color: #cbd5e1;">Verify, Build, and Secure with Confidence.</p>
+        </div>
+    </section>
+
+    <div class="services-container">
+        <a href="landguard.html" class="card-modern dark">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Digital LandGuard</h3>
+            <p>Verify boundaries digitally.</p>
+            <span style="color: #c5a059; font-weight: bold; margin-top: 15px; display: block;">Open Tool →</span>
+        </a>
+
+        <a href="properties.html" class="card-modern">
+            <i class="fas fa-house-user"></i>
+            <h3>Rent or Buy Now</h3>
+            <p>Find your next dream home.</p>
+            <span style="color: #27ae60; font-weight: bold; margin-top: 15px; display: block;">View Listings →</span>
+        </a>
+
+        <a href="brokers.html" class="card-modern">
+            <i class="fas fa-user-check"></i>
+            <h3>Verified Brokers</h3>
+            <p>Connect with top specialists.</p>
+            <span style="color: #27ae60; font-weight: bold; margin-top: 15px; display: block;">View Agents →</span>
+        </a>
+
+        <a href="build.html" class="card-modern">
+            <i class="fas fa-calculator"></i>
+            <h3>Building Inquiries</h3>
+            <p>Get accurate material estimates.</p>
+            <span style="color: #27ae60; font-weight: bold; margin-top: 15px; display: block;">Start Tool →</span>
+        </a>
+
+        <a href="inquiries.html" class="card-modern">
+            <i class="fas fa-file-signature"></i>
+            <h3>Property Inquiries</h3>
+            <p>Tell us what you are looking for.</p>
+            <span style="color: #27ae60; font-weight: bold; margin-top: 15px; display: block;">Send Request →</span>
+        </a>
+    </div>
+
+</body>
+</html>
