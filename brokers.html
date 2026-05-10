@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified Broker Network | LandMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Ensuring the broker-specific layout is perfect */
+        .broker-page-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        
+        .broker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 8%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .broker-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+            border: 1px solid #eee;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .broker-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        .verify-badge {
+            position: absolute; top: 15px; right: 15px; background: #27ae60;
+            color: white; font-size: 10px; font-weight: 800; padding: 5px 12px; border-radius: 50px; z-index: 10;
+        }
+
+        .broker-img { height: 240px; background-size: cover; background-position: center; width: 100%; }
+
+        .broker-info { padding: 20px; text-align: center; }
+        .broker-info h3 { margin-bottom: 5px; color: #0d1b2a; font-size: 1.3rem; }
+        .specialty { color: #c5a059; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; }
+
+        .btn-contact {
+            width: 100%; background: #0d1b2a; color: white; border: none; padding: 12px;
+            border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-contact:hover { background: #27ae60; }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="index.html" class="btn-back">← Back to Hub</a>
+        <div class="logo">Land<span>Market</span></div>
+        <div class="contact-info">
+            <i class="fas fa-phone-alt"></i> +256 751 996 472
+        </div>
+    </nav>
+
+    <header class="broker-page-header">
+        <h1>Our Verified Broker Network</h1>
+        <p>Connect with a specialist personally to ensure a safe transaction.</p>
+    </header>
+
+    <div class="broker-grid">
+        <div class="broker-card">
+            <div class="verify-badge">VERIFIED</div>
+            <div class="broker-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400');"></div>
+            <div class="broker-info">
+                <h3>Samuel Okello</h3>
+                <p class="specialty">Land Specialist</p>
+                <button class="btn-contact" onclick="connectBroker('Samuel Okello')">
+                    <i class="fab fa-whatsapp"></i> Connect via Hub
+                </button>
+            </div>
+        </div>
+
+        <div class="broker-card">
+            <div class="verify-badge">VERIFIED</div>
+            <div class="broker-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400');"></div>
+            <div class="broker-info">
+                <h3>Sarah Namubiru</h3>
+                <p class="specialty">Residential Specialist</p>
+                <button class="btn-contact" onclick="connectBroker('Sarah Namubiru')">
+                    <i class="fab fa-whatsapp"></i> Connect via Hub
+                </button>
+            </div>
+        </div>
+
+        <div class="broker-card">
+            <div class="verify-badge">VERIFIED</div>
+            <div class="broker-img" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400');"></div>
+            <div class="broker-info">
+                <h3>Patrick Mukasa</h3>
+                <p class="specialty">Commercial Expert</p>
+                <button class="btn-contact" onclick="connectBroker('Patrick Mukasa')">
+                    <i class="fab fa-whatsapp"></i> Connect via Hub
+                </button>
+            </div>
+        </div>
+
+        <div class="broker-card">
+            <div class="verify-badge">VERIFIED</div>
+            <div class="broker-img" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400');"></div>
+            <div class="broker-info">
+                <h3>Doreen Akot</h3>
+                <p class="specialty">Investment Property</p>
+                <button class="btn-contact" onclick="connectBroker('Doreen Akot')">
+                    <i class="fab fa-whatsapp"></i> Connect via Hub
+                </button>
+            </div>
+        </div>
+
+        <div class="broker-card">
+            <div class="verify-badge">VERIFIED</div>
+            <div class="broker-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400');"></div>
+            <div class="broker-info">
+                <h3>Moses Ssekandi</h3>
+                <p class="specialty">Rural & Farm Land</p>
+                <button class="btn-contact" onclick="connectBroker('Moses Ssekandi')">
+                    <i class="fab fa-whatsapp"></i> Connect via Hub
+                </button>
+            </div>
+        </div>
+
+        <div class="broker-card">
+            <div class="verify-badge">VERIFIED</div>
+            <div class="broker-img" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400');"></div>
+            <div class="broker-info">
+                <h3>Grace Namatovu</h3>
+                <p class="specialty">Property Valuer</p>
+                <button class="btn-contact" onclick="connectBroker('Grace Namatovu')">
+                    <i class="fab fa-whatsapp"></i> Connect via Hub
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successOverlay" class="success-overlay" style="display: none;">
+        <div class="success-card">
+            <i class="fas fa-check-circle" style="font-size: 50px; color: #27ae60; margin-bottom: 20px;"></i>
+            <h2>Connecting...</h2>
+            <p>Opening WhatsApp to connect you with our specialist.</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+        function connectBroker(brokerName) {
+            const msg = `Hello LandMarket! I am interested in connecting with your verified broker: *${brokerName}*.`;
+            
+            // Show Animation Overlay
+            document.getElementById('successOverlay').style.display = 'flex';
+            
+            // Wait 2 seconds then open WhatsApp
+            setTimeout(() => {
+                window.open(`https://wa.me/256751996472?text=${msg}`, '_blank');
+                document.getElementById('successOverlay').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

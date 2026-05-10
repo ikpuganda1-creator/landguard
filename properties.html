@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | LandMarket Uganda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Filter Bar Branding */
+        .filter-section {
+            background: #0d1b2a;
+            padding: 30px 8%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-end;
+            color: white;
+        }
+
+        .filter-group { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 200px; }
+        .filter-group label { font-size: 14px; font-weight: 600; color: #c5a059; }
+        .filter-group select, .filter-group input { 
+            padding: 12px; border-radius: 8px; border: none; font-size: 15px; background: #fff;
+        }
+
+        .btn-filter-apply {
+            background: #c5a059; color: #0d1b2a; border: none; padding: 12px 30px;
+            border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s;
+            height: 45px;
+        }
+        .btn-filter-apply:hover { background: #27ae60; color: white; }
+
+        /* Property Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 50px 8%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .property-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s;
+            border: 1px solid #eee; display: flex; flex-direction: column;
+        }
+        
+        .property-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        .prop-img { 
+            height: 230px; 
+            width: 100%;
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-color: #f0f0f0; /* Placeholder color */
+        }
+        
+        .prop-details { padding: 25px; flex-grow: 1; }
+        .prop-details h3 { margin-bottom: 8px; color: #0d1b2a; font-size: 1.3rem; }
+        .price-tag { color: #27ae60; font-weight: 800; font-size: 1.2rem; margin-bottom: 15px; }
+        
+        .prop-meta { 
+            display: flex; justify-content: space-between; 
+            font-size: 13px; color: #666; margin-bottom: 20px;
+            padding-top: 10px; border-top: 1px solid #f5f5f5;
+        }
+
+        .btn-inquire {
+            background: #0d1b2a; color: white; border: none; padding: 12px;
+            border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+            text-decoration: none;
+        }
+        .btn-inquire:hover { background: #27ae60; }
+
+        /* Success Overlay */
+        .success-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 27, 42, 0.95); display: flex; justify-content: center;
+            align-items: center; z-index: 9999; display: none;
+        }
+        .loader { width: 30px; height: 30px; border: 3px solid #f3f3f3; border-top: 3px solid #c5a059; border-radius: 50%; animation: spin 1s linear infinite; margin: 15px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="index.html" class="btn-back">← Back to Hub</a>
+        <div class="logo">Land<span>Market</span></div>
+        <div class="contact-info">
+            <i class="fas fa-phone-alt"></i> +256 751 996 472
+        </div>
+    </nav>
+
+    <section class="filter-section">
+        <div class="filter-group">
+            <label>Location</label>
+            <select id="filterLoc">
+                <option value="all">All Locations</option>
+                <option value="Kampala">Kampala</option>
+                <option value="Wakiso">Wakiso</option>
+                <option value="Mukono">Mukono</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Category</label>
+            <select id="filterType">
+                <option value="all">All Types</option>
+                <option value="Land">Land / Plots</option>
+                <option value="House">Residential House</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Max Price (UGX)</label>
+            <input type="number" id="filterPrice" placeholder="e.g. 50000000">
+        </div>
+        <button class="btn-filter-apply" onclick="applyFilters()">Apply Filter</button>
+    </section>
+
+    <div class="property-grid" id="propertyGrid">
+        
+        <div class="property-card" data-location="Kampala" data-type="Land" data-price="45000000">
+            <div class="prop-img" style="background-image: url('https://images.pexels.com/photos/46160/field-clouds-sky-earth-46160.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="prop-details">
+                <h3>50x100 Plot in Kira</h3>
+                <p class="price-tag">45,000,000 UGX</p>
+                <div class="prop-meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Kampala</span>
+                    <span><i class="fas fa-check-circle"></i> Titled</span>
+                </div>
+                <button class="btn-inquire" onclick="inquire('Kira Plot', '45M')">
+                    <i class="fab fa-whatsapp"></i> Inquire Now
+                </button>
+            </div>
+        </div>
+
+        <div class="property-card" data-location="Wakiso" data-type="House" data-price="120000000">
+            <div class="prop-img" style="background-image: url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="prop-details">
+                <h3>Modern 3 Bedroom House</h3>
+                <p class="price-tag">120,000,000 UGX</p>
+                <div class="prop-meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Wakiso</span>
+                    <span><i class="fas fa-bed"></i> 3 Beds</span>
+                </div>
+                <button class="btn-inquire" onclick="inquire('Wakiso House', '120M')">
+                    <i class="fab fa-whatsapp"></i> Inquire Now
+                </button>
+            </div>
+        </div>
+
+        <div class="property-card" data-location="Mukono" data-type="Land" data-price="25000000">
+            <div class="prop-img" style="background-image: url('https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="prop-details">
+                <h3>Residential Plot Mukono</h3>
+                <p class="price-tag">25,000,000 UGX</p>
+                <div class="prop-meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Mukono</span>
+                    <span><i class="fas fa-check-circle"></i> Mailo Land</span>
+                </div>
+                <button class="btn-inquire" onclick="inquire('Mukono Plot', '25M')">
+                    <i class="fab fa-whatsapp"></i> Inquire Now
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="successOverlay" class="success-overlay">
+        <div style="background:white; padding:40px; border-radius:20px; text-align:center;">
+            <i class="fas fa-check-circle" style="color:#27ae60; font-size:40px;"></i>
+            <h3>Opening WhatsApp...</h3>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+        function applyFilters() {
+            const loc = document.getElementById('filterLoc').value;
+            const type = document.getElementById('filterType').value;
+            const price = parseFloat(document.getElementById('filterPrice').value) || Infinity;
+            const cards = document.querySelectorAll('.property-card');
+
+            cards.forEach(card => {
+                const cardLoc = card.getAttribute('data-location');
+                const cardType = card.getAttribute('data-type');
+                const cardPrice = parseFloat(card.getAttribute('data-price'));
+                
+                const matchLoc = (loc === 'all' || loc === cardLoc);
+                const matchType = (type === 'all' || type === cardType);
+                const matchPrice = (cardPrice <= price);
+
+                card.style.display = (matchLoc && matchType && matchPrice) ? 'flex' : 'none';
+            });
+        }
+
+        function inquire(name, price) {
+            const overlay = document.getElementById('successOverlay');
+            overlay.style.display = 'flex';
+            
+            const msg = `Hello LandMarket! I am interested in the *${name}* listed for *${price}*. Please send more details.`;
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/256751996472?text=${msg}`, '_blank');
+                overlay.style.display = 'none';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

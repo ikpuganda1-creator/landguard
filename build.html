@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Building Estimator | LandMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="inquiry-page-bg">
+    <nav class="top-nav">
+        <a href="index.html" class="btn-back">← Back to Hub</a>
+        <div class="logo">Land<span>Market</span></div>
+    </nav>
+
+    <div class="form-wrapper">
+        <div class="inquiry-card">
+            <h2>Building Estimator</h2>
+            <p>Select your project details for a custom quote.</p>
+            
+            <div class="input-box">
+                <label>Project Phase</label>
+                <select id="phase">
+                    <option>Foundation Level</option>
+                    <option>Wall Plate Level</option>
+                    <option>Roofing Phase</option>
+                    <option>Finishing/Plastering</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Property Size</label>
+                <select id="size">
+                    <option>Studio Room (Self-Contained)</option>
+                    <option>2 Bedroom House</option>
+                    <option>3 Bedroom House</option>
+                    <option>Commercial Unit</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Site Location</label>
+                <input type="text" id="location" placeholder="e.g. Matugga, Buloba">
+            </div>
+
+            <button type="button" class="btn-submit" onclick="sendBuildingWA()">Request Quote</button>
+        </div>
+    </div>
+
+    <div id="successOverlay" class="success-overlay" style="display: none;">
+        <div class="success-card">
+            <i class="fas fa-check-circle" style="font-size: 50px; color: #27ae60; margin-bottom: 20px;"></i>
+            <h2>Preparing Quote...</h2>
+            <p>Connecting you to WhatsApp.</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+        function sendBuildingWA() {
+            const phase = document.getElementById('phase').value;
+            const size = document.getElementById('size').value;
+            const loc = document.getElementById('location').value;
+            const msg = `Hello LandMarket! I need a building quote:%0A- Phase: ${phase}%0A- Size: ${size}%0A- Location: ${loc}`;
+            
+            document.getElementById('successOverlay').style.display = 'flex';
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/256751996472?text=${msg}`, '_blank');
+                document.getElementById('successOverlay').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

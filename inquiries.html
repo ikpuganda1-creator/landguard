@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Inquiry | LandMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="inquiry-page-bg">
+    <nav class="top-nav">
+        <a href="index.html" class="btn-back">← Back to Hub</a>
+        <div class="logo">Land<span>Market</span></div>
+    </nav>
+
+    <div class="form-wrapper">
+        <div class="inquiry-card">
+            <h2>Property Inquiry</h2>
+            <p>Tell us what you are looking for.</p>
+            
+            <div class="input-box">
+                <label>Your Name</label>
+                <input type="text" id="uname" placeholder="Full Name">
+            </div>
+
+            <div class="input-box">
+                <label>Requirements</label>
+                <textarea id="ureq" style="width:100%; height:120px; border-radius:12px; border:1px solid #ddd; padding:15px;" placeholder="e.g. 2 decimals in Nansana..."></textarea>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="sendInquiryWA()">Send Request</button>
+        </div>
+    </div>
+
+    <div id="successOverlay" class="success-overlay" style="display: none;">
+        <div class="success-card">
+            <i class="fas fa-check-circle" style="font-size: 50px; color: #27ae60; margin-bottom: 20px;"></i>
+            <h2>Sending Request...</h2>
+            <p>Opening WhatsApp for connection.</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+        function sendInquiryWA() {
+            const name = document.getElementById('uname').value;
+            const req = document.getElementById('ureq').value;
+            const msg = `*New Property Inquiry*%0A- Name: ${name}%0A- Requirements: ${req}`;
+            
+            document.getElementById('successOverlay').style.display = 'flex';
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/256751996472?text=${msg}`, '_blank');
+                document.getElementById('successOverlay').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
